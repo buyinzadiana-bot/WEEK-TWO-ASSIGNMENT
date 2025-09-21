@@ -1,0 +1,25 @@
+Nike | Innovation & Style is a responsive, modern website showcasing Nike’s products, innovations, and marketing campaigns.
+The site also includes an interactive Task Manager section for demonstration purposes, featuring inline task editing, categorization, priority labeling, dark mode, and search/filtering functionality.
+
+CORE FEATURES
+
+Responsive hero section with background video and neon text.
+Product, Innovation, and Marketing sections with interactive cards.
+Contact form with validation and styled input fields.
+Mobile-friendly navigation menu.
+
+TASK MANAGER SECTION
+
+Add new tasks with title, category, and priority.
+Inline editing using contenteditable.
+Task categorization: Work, Personal, School (customizable).
+Priority labels: High, Medium, Low.
+Search bar and category filter.
+Dark mode toggle for light/dark theme switching.
+
+TECHNOLOGIES USED
+
+HTML5 – Website structure.
+Tailwind CSS – Responsive and modern styling.
+JavaScript – Interactive features (menu toggle, fade-in, task manager).
+LocalStorage (Optional) – Persist tasks across sessions (can be added later).
