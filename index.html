@@ -81,6 +81,9 @@
             >
           </li>
           <li>
+            <a href="#tasks" class="hover:text-red-500 transition">Tasks</a>
+          </li>
+          <li>
             <a href="#contact" class="hover:text-red-500 transition">Contact</a>
           </li>
         </ul>
@@ -103,14 +106,12 @@
     </header>
 
     <!-- Padding for fixed header -->
-
     <div class="pt-24"></div>
 
     <!-- HERO WITH VIDEO -->
     <section
       class="relative w-full h-screen flex items-center justify-center overflow-hidden"
     >
-      <!-- Background Video -->
       <video
         autoplay
         muted
@@ -121,11 +122,7 @@
         <source src="videoplayback (1).mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-
-      <!-- Overlay for readability -->
       <div class="absolute inset-0 bg-black/40 z-0"></div>
-
-      <!-- Hero Content -->
       <div class="hero-text absolute z-10 px-4 sm:px-6 md:px-12 lg:px-20">
         <h1
           class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold neon-text mb-4"
@@ -250,6 +247,74 @@
       </div>
     </section>
 
+    <!-- ✅ TASK MANAGER -->
+    <section id="tasks" class="py-16 bg-gray-900 fade-in">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-red-500 mb-8">Task Manager Demo</h2>
+        <button
+          id="toggleDark"
+          class="mb-6 px-4 py-2 bg-red-500 text-black rounded font-bold hover:scale-105 transition"
+        >
+          Toggle Dark Mode
+        </button>
+
+        <div class="flex flex-col md:flex-row justify-center gap-4 mb-6">
+          <input
+            type="text"
+            id="searchTask"
+            placeholder="Search tasks..."
+            class="w-full md:w-1/3 p-3 rounded-lg bg-gray-800 border border-red-500 text-white"
+          />
+          <select
+            id="filterCategory"
+            class="w-full md:w-1/4 p-3 rounded-lg bg-gray-800 border border-red-500 text-white"
+          >
+            <option value="all">All Categories</option>
+            <option value="Work">Marketing</option>
+            <option value="Personal">Sales</option>
+            <option value="School">Designs</option>
+          </select>
+        </div>
+
+        <form
+          id="taskForm"
+          class="flex flex-col md:flex-row gap-4 justify-center mb-6"
+        >
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter new task..."
+            class="flex-1 p-3 rounded-lg bg-gray-800 border border-red-500 text-white"
+            required
+          />
+          <select
+            id="taskCategory"
+            class="p-3 rounded-lg bg-gray-800 border border-red-500 text-white"
+          >
+            <option>Marketing</option>
+            <option>Sales</option>
+            <option>Design</option>
+          </select>
+          <select
+            id="taskPriority"
+            class="p-3 rounded-lg bg-gray-800 border border-red-500 text-white"
+          >
+            <option value="High">🔥 High</option>
+            <option value="Medium">⚡ Medium</option>
+            <option value="Low">🌱 Low</option>
+          </select>
+          <button
+            type="submit"
+            class="px-6 py-3 bg-red-500 text-black font-bold rounded hover:scale-105 transition"
+          >
+            Add Task
+          </button>
+        </form>
+
+        <ul id="taskList" class="space-y-4 text-left max-w-2xl mx-auto"></ul>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="py-16 bg-gray-800 fade-in">
       <div class="container mx-auto px-4 md:px-0 text-center">
@@ -294,6 +359,7 @@
       &copy; 2025 Nike | Innovation & Style
     </footer>
 
+    <!-- ✅ JAVASCRIPT -->
     <script>
       // Mobile menu toggle
       const menuBtn = document.getElementById("menu-btn");
@@ -307,6 +373,82 @@
           if (el.getBoundingClientRect().top < window.innerHeight - 50)
             el.classList.add("show");
         });
+      });
+
+      // ✅ Task Manager Logic
+      const taskForm = document.getElementById("taskForm");
+      const taskInput = document.getElementById("taskInput");
+      const taskCategory = document.getElementById("taskCategory");
+      const taskPriority = document.getElementById("taskPriority");
+      const taskList = document.getElementById("taskList");
+      const searchTask = document.getElementById("searchTask");
+      const filterCategory = document.getElementById("filterCategory");
+      const toggleDark = document.getElementById("toggleDark");
+
+      let tasks = [];
+
+      // Add new task
+      taskForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const task = {
+          id: Date.now(),
+          text: taskInput.value,
+          category: taskCategory.value,
+          priority: taskPriority.value,
+        };
+        tasks.push(task);
+        renderTasks();
+        taskForm.reset();
+      });
+
+      // Render tasks
+      function renderTasks() {
+        const searchText = searchTask.value.toLowerCase();
+        const categoryFilter = filterCategory.value;
+
+        taskList.innerHTML = "";
+
+        tasks
+          .filter(
+            (t) =>
+              (categoryFilter === "all" || t.category === categoryFilter) &&
+              t.text.toLowerCase().includes(searchText)
+          )
+          .forEach((t) => {
+            const li = document.createElement("li");
+            li.className =
+              "bg-gray-800 p-4 rounded flex justify-between items-center";
+
+            // Priority styles
+            let priorityColor = "text-green-400";
+            if (t.priority === "High") priorityColor = "text-red-500 font-bold";
+            else if (t.priority === "Medium") priorityColor = "text-yellow-400";
+
+            li.innerHTML = `
+              <span contenteditable="true" class="flex-1 outline-none">${t.text}</span>
+              <span class="ml-4 px-2 py-1 rounded ${priorityColor}">${t.priority}</span>
+              <span class="ml-2 text-sm text-gray-400">${t.category}</span>
+              <button class="ml-4 text-red-400 hover:text-red-600 deleteBtn">✖</button>
+            `;
+
+            // Delete task
+            li.querySelector(".deleteBtn").addEventListener("click", () => {
+              tasks = tasks.filter((task) => task.id !== t.id);
+              renderTasks();
+            });
+
+            taskList.appendChild(li);
+          });
+      }
+
+      // Search + Filter
+      searchTask.addEventListener("input", renderTasks);
+      filterCategory.addEventListener("change", renderTasks);
+
+      // Dark mode toggle
+      toggleDark.addEventListener("click", () => {
+        document.body.classList.toggle("bg-white");
+        document.body.classList.toggle("text-black");
       });
     </script>
   </body>
