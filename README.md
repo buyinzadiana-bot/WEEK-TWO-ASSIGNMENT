@@ -28,4 +28,4 @@ LocalStorage (Optional) – Persist tasks across sessions (can be added later).
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT/blob/d4f26937bf99107105d5c288ba0e17f94d89d5a6/Screenshot%202025-09-21%20at%2016.29.35.png)
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT/blob/2887a3871840b60b3bfbfb68426a9de7e6ea499f/Screenshot%202025-09-21%20at%2016.29.40.png)
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
-![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
+![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT/blob/11e03526b3dad48e9d49d05d962595bf86f46d9d/Screenshot%202025-09-21%20at%2016.29.46.png)
