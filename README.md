@@ -24,7 +24,7 @@ Tailwind CSS – Responsive and modern styling.
 JavaScript – Interactive features (menu toggle, fade-in, task manager).
 LocalStorage (Optional) – Persist tasks across sessions (can be added later).
 
-![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
+![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT/blob/0d9fb36f6307c65222d929159e3b08ae331d54fc/Screenshot%202025-09-21%20at%2016.29.22.png)
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
 ![image alt](https://github.com/buyinzadiana-bot/WEEK-TWO-ASSIGNMENT#:~:text=5%20hours%20ago-,Screenshot%202025%2D09%2D21%20at%2016.29.22.png,-Add%20files%20via)
